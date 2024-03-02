@@ -1,0 +1,29 @@
+### Get all games
+GET http://localhost:3000/games
+
+### Get a specific game
+GET http://localhost:3000/games/65e253c8a2bda37485e44512
+
+### Create a new game
+POST http://localhost:3000/games
+Content-Type: application/json
+
+{
+  "name": "New Game",
+  "background_image": "http://example.com/newgame.jpg",
+  "parent_platforms": [
+    { "platform": { "name": "New Platform", "slug": "new-platform" } }
+  ],
+  "metacritic": 90
+}
+
+### Update a game
+PATCH http://localhost:3000/games/65e253c8a2bda37485e44512
+Content-Type: application/json
+
+{
+  "metacritic": 95
+}
+
+### Delete a game
+DELETE http://localhost:3000/games/65e253c8a2bda37485e44512

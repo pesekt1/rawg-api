@@ -1,15 +1,13 @@
 import express from "express";
-import dbConnect from "./startup/dbConnect";
 import "dotenv/config";
-import todoRouter from "./routers/todoRouter";
 import cors from "cors";
-
-dbConnect();
+import init from "./startup/init";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/todos", todoRouter);
+
+init(app);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
