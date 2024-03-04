@@ -1,9 +1,10 @@
-# TODO API with TypeScript and node.js
+# RAWG API with TypeScript and node.js
 
-working with TypeScript:
+This is just a quick attempt to have a look at the RAWG API and how to use it with node.js and TypeScript. We implemented both MongoDB and MySQL connection and models.
 
-new project:
+There are for sure many things to refactor and improve. There might also be some bugs. We tested it with the RAWG frontend for the functionality to get games, genres, and platforms from MongoDB, and genres from MySQL. We did not finish all the endpoints for MySQL.
 
+## Setting up the project with TypeScript
 
 ```bash
 npm init -y
@@ -38,7 +39,7 @@ tsc --init
 
 create .env file:
 ```
-MONGO_URI= "mongodb://localhost:27017/todoDB"
+MONGO_URI= "mongodb://localhost:27017/rawgdb"
 ```
 
 Connect to MongoDB:
@@ -57,6 +58,21 @@ export default () => {
 };
 ```
 
-## System architecture with deployment
+## Seeding the databases
+There are folders data and data-sql containing sample data and the seeding scripts.
 
-![Architecture](./architecture.png)
+##
+Scripts in package.json - we can run for example: npm run dev:
+```json
+  "scripts": {
+    "build": "npm install && tsc",
+    "start": "ts-node index.ts",
+    "dev": "nodemon --exec ts-node index.ts",
+    "seed": "ts-node ./data/seeder.ts",
+    "seed-mysql": "ts-node ./data-sql/seeder.ts"
+  },
+```
+
+## System architecture with deployment (client, server, databases)
+
+![Architecture](./rawg-architecture.drawio.png)

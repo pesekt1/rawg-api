@@ -10,7 +10,7 @@ app.use(express.json());
 init(app);
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Root endpoint.");
 });
 
 app.listen(3000, () => {

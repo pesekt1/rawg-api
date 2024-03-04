@@ -8,12 +8,6 @@ interface Response {
   results: IGame[];
 }
 
-interface GameQuery {
-  genres: {
-    _id: string;
-  };
-}
-
 // Create
 router.post("/", async (req, res) => {
   const game = new Game(req.body);

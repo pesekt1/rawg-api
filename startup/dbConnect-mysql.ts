@@ -11,12 +11,6 @@ export default async (): Promise<Connection> => {
     entities: [__dirname + "/../models-sql/*.ts"],
     synchronize: false,
   });
-  // .then((connection) => {
-  //   console.log("Successfully connected to the database.");
-  // })
-  // .catch((error) =>
-  //   console.log("Error connecting to the MySQL database:", error)
-  // );
 
   return connection;
 };
